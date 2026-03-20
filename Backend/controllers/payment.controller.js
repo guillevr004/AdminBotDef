@@ -5,7 +5,7 @@ export const getPayment = async (req, res) => {
     try{
         const data = await getAll();
         res.status(200).json(data);
-    } catch{
+    } catch (error) {
         res.status(500).json({ message: "Algo Paso", err: error });
     }
 };

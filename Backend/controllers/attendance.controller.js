@@ -1,24 +1,24 @@
-import { getAll, create } from "../models/parent.model.js";
+import { getAll, create } from "../models/attendance.model.js";
 import { randomUUID } from "crypto";
 
-export const getParent = async (req, res) => {
+export const getAttendance = async (req, res) => {
     try{
         const data = await getAll();
         res.status(200).json(data);
-    } catch{
+    } catch (error) {
         res.status(500).json({ message: "Algo Paso", err: error });
     }
 };
 
-export const createParent = async (req, res) => {
+export const createAttendance = async (req, res) => {
     try{
-        const newParent = {
+        const newAttendance = {
             id: randomUUID(),
             ...req.body
         };
 
-        await create(newParent)
-        res.status(201).json({ message: "Parent Created" });
+        await create(newAttendance)
+        res.status(201).json({ message: "Attendance Created" });
     } catch (error) {
         res.status(500).json({ message: "Error Al Crear", err: error });
     }

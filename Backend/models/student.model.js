@@ -6,12 +6,12 @@ export const getAll = async () => {
 };
 
 export const create = async (data) => {
-    const {id, code_students, first_name, last_name, type_document, number_document, birthday, grade, selective_grade} =
+    const {id, student_code, first_name, last_name, document_type, document_number, birth_date, grade, school_year} =
         data;
 
     const [result] = await db.query(
-        `INSERT INTO students (id, code_students, first_name, last_name, type_document, number_document, birthday, grade,
-        selective_grade) VALUES (?,?,?,?,?,?,?,?,?)`,
-        [id, code_students, first_name, last_name, type_document, number_document, birthday, grade, selective_grade]
+        `INSERT INTO students (id, student_code, first_name, last_name, document_type, document_number, birth_date, grade,
+        school_year) VALUES (?,?,?,?,?,?,?,?,?)`,
+        [id, student_code, first_name, last_name, document_type, document_number, birth_date, grade, school_year]
     );
 };

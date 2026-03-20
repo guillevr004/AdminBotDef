@@ -1,10 +1,10 @@
 import express from "express";
-import { getAll, createPayment} from "../models/payment.model.js";
+import { getPayment, createPayment} from "../controllers/payment.controller.js";
 
 
 const route = express.Router();
 
-route.get("/payment", getAll);
+route.get("/payment", getPayment);
 route.post("/payment", createPayment);
 
 export default route;
